@@ -6,7 +6,7 @@ const Customer = sequelize.define("Customer", {
   customerid: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoincrement: true,
+    autoIncrement: true,
   },
   Cust_FName: {
     type: DataTypes.STRING,
@@ -48,5 +48,7 @@ const Customer = sequelize.define("Customer", {
     type: DataTypes.STRING,
     allowNull: true,
   },
+}, {
+  timestamps: true  // Enables createdAt and updatedAt timestamps
 });
 module.exports = Customer;

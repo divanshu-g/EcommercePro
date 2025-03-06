@@ -2,20 +2,22 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Departments = sequelize.define('Department', {
-            deptid: {
+    deptid: {
         type: DataTypes.INTEGER,
-        primarykey: true,
-        autoincrement: true,
-        allowNull:false
-        
-        
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false   
     },
-            dname: {
+    dname: {
         type: DataTypes.STRING,
         allowNull: false
     }
+}, {
+    timestamps: true 
 });
-module.exports = Country_State;
+
+module.exports = Departments;
+
 
 
 

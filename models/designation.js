@@ -2,20 +2,21 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Designations = sequelize.define('Designation', {
-            desigid: {
+    desigid: {
         type: DataTypes.INTEGER,
-         primarykey: true,
-         autioIncrement:true,
-        allowNull:false
-        
-        
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false  
     },
     desigName: {
         type: DataTypes.STRING,
         allowNull: false
     }
+}, {
+    timestamps: true 
 });
-module.exports = Country_State;
+
+module.exports = Designations;
 
 
 
