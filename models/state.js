@@ -2,14 +2,15 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const States = sequelize.define('State', {
-            stateid: {
+    stateid: {
         type: DataTypes.INTEGER,
-        primaryKey: true
-        
+        primaryKey: true  
     },
     stateName: {
         type: DataTypes.STRING,
         allowNull: false
     }
+}, {
+    timestamps: true
 });
-module.exports = States;
+module.exports = { States };

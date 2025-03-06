@@ -2,11 +2,10 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Region = sequelize.define('Region', {
-            regionid: {
+    regionid: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoincrement: true
-        
+        autoIncrement: true  
     },
     RegionName: {
         type: DataTypes.STRING,
