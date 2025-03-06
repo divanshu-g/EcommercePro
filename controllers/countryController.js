@@ -3,12 +3,13 @@ const Country = require('../models/country');
 // Create a new country
 exports.create = async (req, res) => {
     try {
-        const country = await Country.create({ name: req.body.name });
+        const country = await Country.create({ CountryName: req.body.CountryName }); 
         res.status(201).json(country);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
+
 
 // Get all countries
 exports.findAll = async (req, res) => {
@@ -38,8 +39,9 @@ exports.findOne = async (req, res) => {
 exports.update = async (req, res) => {
     try {
         const [updated] = await Country.update(req.body, {
-            where: { id: req.params.id }
+            where: { countryid: req.params.id }  // ✅ Use `countryid` instead of `id`
         });
+        
         if (updated) {
             const updatedCountry = await Country.findByPk(req.params.id);
             res.status(200).json(updatedCountry);
@@ -51,11 +53,12 @@ exports.update = async (req, res) => {
     }
 };
 
+
 // Delete a country by ID
 exports.delete = async (req, res) => {
     try {
         const deleted = await Country.destroy({
-            where: { id: req.params.id }
+            where: { countryid: req.params.id }
         });
         if (deleted) {
             res.status(204).json({ message: 'Country deleted' });
